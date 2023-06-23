@@ -1,0 +1,22 @@
+This project adds the latitude,longitude as post request to the server.
+
+It also takes a target coordinate to find the nearest location for the coordinate.
+
+Download node and install express,node-cache,node-vincenty,kd-tree-javascript to calculate store the coordinates and calculate the nearest location.
+
+I have used a kd-tree for nearest neighbor search can significantly improve the performance of my API when dealing with a large number of coordinates. It allows for efficient retrieval of the closest location based on a given target coordinate, which is a common requirement in location-based services and geospatial applications.
+
+I have implemented cacheing mechanism and error handling for the bonus point.
+
+The Vincenty algorithm calculates the geodesic distance, which is the shortest path between two points on the surface of the ellipsoid. It takes into account the latitude and longitude of both points and iteratively refines the calculation to improve accuracy. The result is a highly accurate distance measurement, typically in meters
+
+The node-vincenty library I am using in my code implements the Vincenty algorithm for calculating distances between latitude and longitude coordinates. It provides the distVincenty function, which takes the latitude and longitude of two points and returns the distance between them using the Vincenty algorithm.
+
+By using the Vincenty algorithm in my nearest neighbor search, I can obtain more accurate distances between coordinates, resulting in more precise nearest neighbor calculations.
+
+To test the api,send a post request using the command prompt like:
+curl -X POST -H "Content-Type: application/json" -d "{\"latitude\": 41.7128, \"longitude\": -73.0060}" http://localhost:3002/coordinate
+and upon receiong "Ok"
+
+send a get request to get the nearest location:
+curl -X GET "http://localhost:3002/coordinate/nearest?latitude=37.7749&longitude=-122.4194"
