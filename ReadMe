@@ -1,6 +1,6 @@
-This project adds the latitude,longitude as post request to the server.
+This project has few coordinates and can add more coordinates to kd-tree.
 
-It also takes a target coordinate to find the nearest location for the coordinate.
+It also takes a get request for  target coordinate to find the nearest location for the coordinate.
 
 Download node and install express,node-cache,node-vincenty,kd-tree-javascript to calculate store the coordinates and calculate the nearest location.
 
@@ -15,8 +15,6 @@ The node-vincenty library I am using in my code implements the Vincenty algorith
 By using the Vincenty algorithm in my nearest neighbor search, I can obtain more accurate distances between coordinates, resulting in more precise nearest neighbor calculations.
 
 To test the api,send a post request using the command prompt like:
-curl -X POST -H "Content-Type: application/json" -d "{\"latitude\": 41.7128, \"longitude\": -73.0060}" http://localhost:3002/coordinate
-and upon receiong "Ok"
 
 send a get request to get the nearest location:
 curl -X GET "http://localhost:3002/coordinate/nearest?latitude=37.7749&longitude=-122.4194"
