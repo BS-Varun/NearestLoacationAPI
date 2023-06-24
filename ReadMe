@@ -17,4 +17,6 @@ By using the Vincenty algorithm in my nearest neighbor search, I can obtain more
 To test the api,send a post request using the command prompt like:
 
 send a get request to get the nearest location:
-curl -X GET "http://localhost:3002/coordinate/nearest?latitude=37.7749&longitude=-122.4194"
+curl -X GET  "http://localhost:3000/nearest-location?latitude=56.0522&longitude=-88.2437"
+
+You will get a response with the location name,latitude and longitude of that place nearest to the given request present in the kd-tree
